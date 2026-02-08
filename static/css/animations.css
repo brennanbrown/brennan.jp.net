@@ -1,0 +1,73 @@
+/* ============================================
+   brennan.jp.net — Animations
+   ============================================ */
+
+/* Blink effect for NEW! badges */
+.blink {
+  animation: blink-anim 2s steps(2, start) infinite;
+}
+
+@keyframes blink-anim {
+  to { visibility: hidden; }
+}
+
+/* Sparkle effect for featured content */
+.sparkle::after {
+  content: "✨";
+  animation: sparkle-anim 2s ease-in-out infinite;
+}
+
+@keyframes sparkle-anim {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Subtle pulse for hot posts */
+.post-hot {
+  animation: hot-pulse 3s ease-in-out infinite;
+}
+
+@keyframes hot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+  50% { box-shadow: 0 0 6px 2px rgba(255, 0, 0, 0.15); }
+}
+
+/* Widget header shimmer */
+.widget-header {
+  background-size: 200% 100%;
+  animation: header-shimmer 4s ease-in-out infinite;
+}
+
+@keyframes header-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Counter digit flip */
+.digit {
+  animation: digit-glow 3s ease-in-out infinite;
+}
+
+@keyframes digit-glow {
+  0%, 100% { text-shadow: 0 0 2px #00FF00; }
+  50% { text-shadow: 0 0 8px #00FF00, 0 0 12px #00FF00; }
+}
+
+/* RSS button bounce */
+.rss-button:hover {
+  animation: rss-bounce 0.4s ease;
+}
+
+@keyframes rss-bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

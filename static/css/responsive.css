@@ -1,0 +1,151 @@
+/* ============================================
+   Japanese Web Aesthetic Theme — Responsive Styles
+   ============================================ */
+
+/* --- Tablet (max-width: 768px) --- */
+@media (max-width: 768px) {
+  .site-container {
+    flex-direction: column;
+  }
+
+  .content-area {
+    border-right: none;
+    border-bottom: 3px solid var(--border-color);
+    padding-right: 0;
+    padding-bottom: 10px;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 10px;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+
+  .nav-list {
+    justify-content: center;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .archive-col-category,
+  .archive-col-tags {
+    display: none;
+  }
+
+  .archive-col-title {
+    flex: 1;
+  }
+
+  .post-meta {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .post-navigation {
+    flex-direction: column;
+  }
+
+  .related-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* --- Mobile (max-width: 480px) --- */
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
+  }
+
+  .site-title {
+    font-size: 24px;
+  }
+
+  .nav-link {
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+
+  .section-header h2 {
+    font-size: 18px;
+  }
+
+  .post-card-inner {
+    flex-direction: column;
+  }
+
+  .post-thumbnail img {
+    width: 100%;
+    height: auto;
+    max-height: 160px;
+  }
+
+  .post-title {
+    font-size: 20px;
+  }
+
+  .post-excerpt {
+    font-size: 15px;
+  }
+
+  .tag {
+    font-size: 13px;
+    padding: 3px 10px;
+  }
+
+  .page-btn {
+    padding: 8px 14px;
+    font-size: 15px;
+  }
+
+  .widget-header {
+    font-size: 16px;
+  }
+
+  .widget-content {
+    font-size: 15px;
+  }
+
+  .single-post .post-title {
+    font-size: 22px;
+  }
+
+  .post-meta-bar {
+    font-size: 14px;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .post-content {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .marquee-text {
+    font-size: 16px;
+  }
+
+  .breadcrumbs {
+    font-size: 14px;
+  }
+
+  .footer-col {
+    font-size: 14px;
+  }
+
+  .error-code {
+    font-size: 48px;
+  }
+}
