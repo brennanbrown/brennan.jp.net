@@ -2,7 +2,7 @@ baseURL = "https://brennan.jp.net/"
 languageCode = "en-us"
 title = "brennan.jp.net"
 [pagination]
-  pagerSize = 6
+  pagerSize = 15
 summaryLength = 70
 
 [taxonomies]
@@ -31,17 +31,18 @@ summaryLength = 70
   description = "Your site description here!"
   author = "Your Name"
   
-  # SEO protection for example content
+  # SEO protection for example content (set to false for your own work)
   noIndex = true
   robots = "noindex, nofollow"
   
   # Contact information
   email = "your-email@example.com"
   mastodon = "@username@mastodon.social"
+  bluesky = "username.bsky.social"
   github = "username"
   
   # Development info
-  developer = "Theme Developer"
+  developer = "🍓 Berry House"
   developerUrl = "https://berryhouse.ca"
   themeRepo = "https://github.com/brennanbrown/brennan.jp.net"
   licenseUrl = "https://github.com/brennanbrown/brennan.jp.net/blob/main/LICENSE"
@@ -87,7 +88,7 @@ summaryLength = 70
   # Footer
   showSiteMap = true
   showCopyright = true
-  customFooterText = "Best viewed in any browser! 頑張って"
+  customFooterText = "Best viewed in any browser. 頑張って!~"
 
   # Quotes for random rotation
   [[params.quotes]]

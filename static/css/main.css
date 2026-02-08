@@ -166,16 +166,8 @@ pre {
 
 .nav-link:hover,
 .nav-link[aria-current="page"] {
-  background: var(--nav-orange);
-  color: #FFFFFF !important;
-}
-
-.nav-home .nav-link {
   background: var(--primary-color);
-}
-
-.nav-home .nav-link:hover {
-  background: #CC0000;
+  color: #FFFFFF !important;
 }
 
 /* Breadcrumbs */
@@ -1148,6 +1140,63 @@ pre {
   max-height: 150px;
   border: 2px solid var(--border-color);
   padding: 2px;
+}
+
+/* ============================================
+   FIGURES & CAPTIONS
+   ============================================ */
+figure {
+  margin: 24px 0;
+  text-align: center;
+  max-width: 100%;
+}
+
+figure img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid var(--border-color);
+  padding: 2px;
+  background: var(--background-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+figcaption {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  background: var(--background-secondary);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  line-height: 1.4;
+}
+
+/* Responsive figure sizing */
+@media (max-width: 768px) {
+  figure {
+    margin: 20px 0;
+  }
+  
+  figcaption {
+    font-size: 13px;
+    margin-top: 10px;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  figure {
+    margin: 16px 0;
+  }
+  
+  figcaption {
+    font-size: 12px;
+    margin-top: 8px;
+    padding: 6px 8px;
+  }
 }
 
 /* ============================================

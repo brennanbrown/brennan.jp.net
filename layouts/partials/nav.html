@@ -1,7 +1,7 @@
 <nav class="main-nav" role="navigation" aria-label="Main navigation">
   <ul class="nav-list">
     {{ range .Site.Menus.main }}
-    <li class="nav-item{{ if eq .Name "Home" }} nav-home{{ end }}">
+    <li class="nav-item">
       <a href="{{ .URL }}" class="nav-link"
          {{ if $.IsMenuCurrent "main" . }}aria-current="page"{{ end }}>
         {{ .Name }}

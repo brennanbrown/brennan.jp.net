@@ -6,13 +6,61 @@
   </header>
 
   <div class="page-content e-content">
-    {{ .Content }}
+    <h2>Ways to Reach Me</h2>
+
+    <h3>📧 Email</h3>
+    {{ if .Site.Params.email }}
+      <p><a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></p>
+    {{ else }}
+      <p>Email configuration coming soon!</p>
+    {{ end }}
+
+    <h3>🐘 Mastodon</h3>
+    {{ if .Site.Params.mastodon }}
+      <p><a href="https://{{ .Site.Params.mastodon | replace "@" "" }}">{{ .Site.Params.mastodon }}</a></p>
+    {{ else }}
+      <p>Mastodon configuration coming soon!</p>
+    {{ end }}
+
+    <h3>🐦 Bluesky</h3>
+    {{ if .Site.Params.bluesky }}
+      <p><a href="https://bsky.app/profile/{{ .Site.Params.bluesky }}">@{{ .Site.Params.bluesky }}</a></p>
+    {{ else }}
+      <p>Bluesky configuration coming soon!</p>
+    {{ end }}
+
+    <h3>💻 GitHub</h3>
+    {{ if .Site.Params.github }}
+      <p><a href="https://github.com/{{ .Site.Params.github }}">{{ .Site.Params.github }}</a></p>
+    {{ else }}
+      <p>GitHub configuration coming soon!</p>
+    {{ end }}
+
+    <hr>
+
+    <h2>About This Contact Method</h2>
+    <p>This page follows IndieWeb principles with:</p>
+    <ul>
+      <li><strong>No third-party tracking</strong> - Your privacy matters</li>
+      <li><strong>Direct communication</strong> - Reach me through the platforms above</li>
+      <li><strong>Open web standards</strong> - Using established protocols</li>
+    </ul>
+
+    <h2>Webmention Support</h2>
+    <p>If you have your own site, you can also send a webmention to:</p>
+    <p><code>{{ .Permalink }}</code></p>
+    <p>This allows for decentralized responses and interactions across the independent web.</p>
+
+    <hr>
+
+    <p><em>Last updated: {{ now.Format "2006-01-02" }}</em></p>
   </div>
 
   <footer class="page-footer-bar">
     <div class="share-links">
       <strong>Share:</strong>
       <a href="https://mastodon.social/share?url={{ .Permalink }}&text={{ .Title }}" rel="noopener" target="_blank">[Mastodon]</a>
+      <a href="https://bsky.app/intent/compose?url={{ .Permalink }}&text={{ .Title }}" rel="noopener" target="_blank">[Bluesky]</a>
       <a href="https://www.threads.net/intent/post?url={{ .Permalink }}&text={{ .Title }}" rel="noopener" target="_blank">[Threads]</a>
       <a href="mailto:?subject={{ .Title }}&body={{ .Permalink }}">[Email]</a>
     </div>

@@ -6,7 +6,7 @@
   </div>
 
   <div class="post-grid">
-    {{ $paginator := .Paginate (where .Site.RegularPages "Section" "posts") }}
+    {{ $paginator := .Paginate (where .Site.RegularPages "Section" "posts") 6 }}
     {{ range $index, $page := $paginator.Pages }}
     <article class="post-card {{ if lt (sub now.Unix .Date.Unix) 259200 }}post-hot{{ end }}">
       <div class="post-card-inner">
