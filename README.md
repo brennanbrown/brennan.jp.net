@@ -1,6 +1,13 @@
 # brennan.jp.net
 
+[![Hugo Version](https://img.shields.io/badge/Hugo-0.139.4-blue)](https://gohugo.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5cfbf1083000f79bc927c22d/deploy-status)](https://app.netlify.com/sites/brennan-jp-net/deploys)
+[![Hugo Themes](https://img.shields.io/badge/Hugo%20Themes-Japanese%20Web-green)](https://themes.gohugo.io/themes/japanese-web/)
+
 A Hugo blog theme that authentically recreates the compact, text-heavy, colorful aesthetic of traditional Japanese web design (circa 1990s–2010s), while maintaining modern accessibility and performance standards.
+
+![Theme Screenshot](screenshot.png)
 
 > **Note**: This is an example theme that contains actual blog posts from https://brennan.day for demonstration purposes. These posts are configured to be excluded from search engine indexing to protect the original site's SEO.
 
