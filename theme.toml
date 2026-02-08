@@ -1,0 +1,32 @@
+name = "brennan.jp.net"
+license = "MIT"
+licenselink = "https://github.com/brennanbrown/brennan.jp.net/blob/main/LICENSE"
+description = "A Hugo blog theme that authentically recreates the compact, text-heavy, colorful aesthetic of traditional Japanese web design (circa 1990s-2010s), while maintaining modern accessibility and performance standards."
+
+homepage = "https://github.com/brennanbrown/brennan.jp.net"
+demosite = "https://brennan.jp.net"
+
+tags = ["blog", "retro", "japanese", "indieweb", "responsive", "accessible"]
+
+features = [
+  "Responsive Design",
+  "Accessibility Features", 
+  "IndieWeb Support",
+  "RSS Feeds",
+  "Semantic HTML5",
+  "CSS Variables",
+  "Custom Shortcodes",
+  "Widget System",
+  "Taxonomy Support"
+]
+
+min_version = "0.120.0"
+
+[author]
+  name = "Brennan Kenneth Brown"
+  homepage = "https://brennan.jp.net"
+
+[original]
+  name = "Brennan Kenneth Brown"
+  homepage = "https://brennan.jp.net"
+  repo = "https://github.com/brennanbrown/brennan.jp.net"
