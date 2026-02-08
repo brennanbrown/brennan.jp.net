@@ -3,7 +3,7 @@
     {{ range .Site.Menus.main }}
     <li class="nav-item">
       <a href="{{ .URL }}" class="nav-link"
-         {{ if $.IsMenuCurrent "main" . }}aria-current="page"{{ end }}>
+         {{ if eq $.RelPermalink .URL }}aria-current="page"{{ end }}>
         {{ .Name }}
       </a>
     </li>
