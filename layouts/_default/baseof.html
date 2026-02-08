@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ .Description | default .Site.Params.description }}">
+  <meta name="author" content="{{ .Site.Params.author }}">
+  {{ if .Site.Params.noIndex }}
+  <meta name="robots" content="{{ .Site.Params.robots | default "noindex, nofollow" }}">
+  {{ end }}
+  
+  <!-- Open Graph meta tags -->
+  <meta property="og:title" content="{{ .Title | default .Site.Title }}">
+  <meta property="og:description" content="{{ .Description | default .Site.Params.description }}">
+  <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  {{ with .Params.featured_image }}
+  <meta property="og:image" content="{{ . | absURL }}">
+  {{ end }}
+  
+  <!-- Twitter Card meta tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ .Title | default .Site.Title }}">
+  <meta name="twitter:description" content="{{ .Description | default .Site.Params.description }}">
+  {{ with .Params.featured_image }}
+  <meta name="twitter:image" content="{{ . | absURL }}">
+  {{ end }}
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ .Permalink }}">
+  
+  <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+  
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "favicon/apple-touch-icon.png" | relURL }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon/favicon-32x32.png" | relURL }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon/favicon-16x16.png" | relURL }}">
+  <link rel="manifest" href="{{ "favicon/site.webmanifest" | relURL }}">
+  <link rel="shortcut icon" href="{{ "favicon/favicon.ico" | relURL }}">
+  
+  <!-- Android Chrome -->
+  <meta name="theme-color" content="{{ .Site.Params.primaryColor | default "#FF0000" }}">
+  
+  <!-- Apple Touch -->
+  <meta name="apple-mobile-web-app-title" content="{{ .Site.Title }}">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Microsoft -->
+  <meta name="msapplication-TileColor" content="{{ .Site.Params.primaryColor | default "#FF0000" }}">
+  
+  <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/responsive.css" | relURL }}">
+  {{ if .Site.Params.enableAnimations }}
+  <link rel="stylesheet" href="{{ "css/animations.css" | relURL }}">
+  {{ end }}
+  
+  <!-- CSS Variables from configuration -->
+  <style>
+    :root {
+      --primary-color: {{ .Site.Params.primaryColor | default "#FF0000" }};
+      --secondary-color: {{ .Site.Params.secondaryColor | default "#0066FF" }};
+      --background-color: {{ .Site.Params.backgroundColor | default "#FFFFFF" }};
+      --border-color: {{ .Site.Params.borderColor | default "#CCCCCC" }};
+      --text-secondary: {{ .Site.Params.textSecondaryColor | default "#666666" }};
+      --text-muted: {{ .Site.Params.textMutedColor | default "#999999" }};
+      --background-secondary: {{ .Site.Params.backgroundSecondaryColor | default "#F0F0F0" }};
+      --background-color-alt: {{ .Site.Params.backgroundSecondaryColor | default "#F0F0F0" }};
+      --text-color: #000000;
+      --link-color: #0000FF;
+      --visited-link-color: #800080;
+      --hover-background-color: #FFFFE0;
+      --widget-background: #FFFFFF;
+      --rss-orange: #FF6600;
+      --rss-border: #CC5200;
+      --nav-orange: #FF6600;
+      --tag-background: #E0FFFF;
+      --badge-yellow: #FFFF00;
+      --widget-pink: #FF69B4;
+      --widget-green: #009900;
+      --widget-purple: #9933CC;
+      --widget-teal: #008080;
+      --widget-brown: #8B4513;
+    }
+  </style>
+  
+  <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ "feed.xml" | absURL }}">
+  
+  <!-- IndieWeb Headers -->
+  {{- if .Site.Params.github }}
+  <link rel="me" href="https://github.com/{{ .Site.Params.github }}" />
+  {{- end }}
+  {{- if .Site.Params.webmention }}
+  <link rel="webmention" href="{{ .Site.Params.webmention }}" />
+  {{- end }}
+  {{- if .Site.Params.pingback }}
+  <link rel="pingback" href="{{ .Site.Params.pingback }}" />
+  {{- end }}
+  
+  {{ block "head" . }}{{ end }}
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  {{ partial "header.html" . }}
+  {{ partial "nav.html" . }}
+
+  {{ if .Site.Params.enableMarquee }}
+  <div class="marquee-bar" role="marquee" aria-live="off">
+    <span class="marquee-text">🔥 Welcome to {{ .Site.BaseURL }} — {{ .Site.Params.description }} — Thanks for visiting! 🌸✨</span>
+  </div>
+  {{ end }}
+
+  <div class="site-container">
+    <main id="main-content" class="content-area" role="main">
+      {{ block "main" . }}{{ end }}
+    </main>
+
+    {{ if .Site.Params.showSidebar }}
+    {{ partial "sidebar.html" . }}
+    {{ end }}
+  </div>
+
+  {{ partial "footer.html" . }}
+
+  <script src="{{ "js/optional.js" | relURL }}" defer></script>
+</body>
+</html>

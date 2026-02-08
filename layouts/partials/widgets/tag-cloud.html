@@ -1,0 +1,15 @@
+<div class="widget widget-tags">
+  <div class="widget-header widget-header-tags">🏷️ Tag Cloud</div>
+  <div class="widget-content">
+    <div class="tag-cloud">
+      {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+      {{ $count := len $taxonomy.Pages }}
+      <a href="{{ "tags/" | relURL }}{{ $name | urlize }}/"
+         class="tag-link tag-count-{{ $count }}"
+         title="{{ $count }} posts">
+        {{ $name }} ({{ $count }})
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</div>

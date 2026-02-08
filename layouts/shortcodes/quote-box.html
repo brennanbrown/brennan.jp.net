@@ -1,0 +1,5 @@
+{{/* Usage: {{< quote-box author="Name" >}}Quote text{{< /quote-box >}} */}}
+<blockquote class="decorative-quote">
+  <p>{{ .Inner | markdownify }}</p>
+  {{ with .Get "author" }}<cite>— {{ . }}</cite>{{ end }}
+</blockquote>

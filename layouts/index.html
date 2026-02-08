@@ -1,0 +1,66 @@
+{{ define "main" }}
+
+<section class="homepage-posts">
+  <div class="section-header">
+    <h2>■ Blog Posts ({{ len (where .Site.RegularPages "Section" "posts") }})</h2>
+  </div>
+
+  <div class="post-grid">
+    {{ $paginator := .Paginate (where .Site.RegularPages "Section" "posts") }}
+    {{ range $index, $page := $paginator.Pages }}
+    <article class="post-card {{ if lt (sub now.Unix .Date.Unix) 259200 }}post-hot{{ end }}">
+      <div class="post-card-inner">
+        {{ if .Params.featured_image }}
+        <div class="post-thumbnail">
+          <img src="{{ .Params.featured_image }}" alt="{{ .Params.featured_image_alt }}">
+        </div>
+        {{ end }}
+        <div class="post-card-content">
+          <h3 class="post-title">
+            <a href="{{ .Permalink }}" class="p-name u-url">{{ .Title }}</a>
+          </h3>
+          <div class="post-meta">
+            {{ if .Date }}
+            <span class="post-date dt-published">📅 <time datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date.Format "2006-01-02" }}</time></span>
+            {{ end }}
+            {{ if .Params.categories }}
+            <span class="post-category">
+              📁 <a href="{{ "categories/" | relURL }}{{ (index .Params.categories 0) | urlize }}/" class="p-category">{{ index .Params.categories 0 }}</a>
+            </span>
+            {{ end }}
+          </div>
+          <div class="post-excerpt p-summary">
+            {{ .Summary }}
+          </div>
+          <div class="post-footer">
+            <a href="{{ .Permalink }}" class="read-more">Continue reading »</a>
+            {{ with .Params.tags }}
+            <div class="post-tags">
+              {{ range . }}
+              <a href="{{ "tags/" | relURL }}{{ . | urlize }}/" class="tag">{{ . }}</a>
+              {{ end }}
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </article>
+    {{ end }}
+  </div>
+
+  {{ if gt $paginator.TotalPages 1 }}
+  <nav class="pagination" aria-label="Page navigation">
+    {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}" class="page-btn">&laquo; Prev</a>
+    {{ end }}
+    {{ range $paginator.Pagers }}
+    <a href="{{ .URL }}" class="page-btn {{ if eq . $paginator }}page-current{{ end }}">{{ .PageNumber }}</a>
+    {{ end }}
+    {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}" class="page-btn">Next &raquo;</a>
+    {{ end }}
+  </nav>
+  {{ end }}
+</section>
+
+{{ end }}

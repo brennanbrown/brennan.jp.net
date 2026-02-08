@@ -1,0 +1,17 @@
+<div class="widget widget-recent">
+  <div class="widget-header widget-header-recent">📝 Recent Posts</div>
+  <div class="widget-content">
+    <ul class="recent-posts-list">
+      {{ $count := .Site.Params.recentPostsCount | default 15 }}
+      {{ range first $count (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}
+      <li class="recent-post-item">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{ if gt (div (sub now.Unix .Date.Unix) 86400) 3 | not }}
+        <span class="badge-new blink">NEW!</span>
+        {{ end }}
+        <span class="recent-post-date">{{ .Date.Format "01/02" }}</span>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</div>

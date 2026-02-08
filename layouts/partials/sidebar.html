@@ -1,0 +1,89 @@
+<aside class="sidebar sidebar-{{ .Site.Params.sidebarPosition | default "right" }}" role="complementary" aria-label="Sidebar">
+
+  {{ if .Site.Params.showRecentPosts }}
+  {{ partial "widgets/recent-posts.html" . }}
+  {{ end }}
+
+  {{ if .Site.Params.showTagCloud }}
+  {{ partial "widgets/tag-cloud.html" . }}
+  {{ end }}
+
+  {{ if .Site.Params.showArchiveCalendar }}
+  {{ partial "widgets/archive.html" . }}
+  {{ end }}
+
+  <!-- Site Statistics Widget -->
+  <div class="widget widget-stats">
+    <div class="widget-header widget-header-stats">📊 Site Stats</div>
+    <div class="widget-content">
+      <ul class="stats-list">
+        <li><strong>Posts:</strong> {{ len (where .Site.RegularPages "Section" "posts") }}</li>
+        <li><strong>Categories:</strong> {{ len .Site.Taxonomies.categories }}</li>
+        <li><strong>Tags:</strong> {{ len .Site.Taxonomies.tags }}</li>
+      </ul>
+    </div>
+  </div>
+
+  {{ if .Site.Params.showRandomQuote }}
+  <!-- Random Quote Widget -->
+  <div class="widget widget-quote">
+    <div class="widget-header widget-header-quote">💬 Random Quote</div>
+    <div class="widget-content">
+      {{ $quotes := .Site.Params.quotes }}
+      {{ if $quotes }}
+      <div class="quote-rotation" data-quotes='{{ $quotes | jsonify }}'>
+        {{ $quote := index $quotes 0 }}
+        <blockquote class="random-quote">
+          <p>{{ $quote.text }}</p>
+          <cite>— {{ $quote.author }}</cite>
+        </blockquote>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+  <!-- Currently Reading Widget -->
+  <div class="widget widget-reading">
+    <div class="widget-header widget-header-reading">📖 Currently Reading</div>
+    <div class="widget-content">
+      <p class="reading-item"><em>Check back soon!</em></p>
+    </div>
+  </div>
+
+  <!-- AD SPACE placeholder -->
+  <div class="widget widget-ad">
+    <div class="ad-placeholder">AD SPACE</div>
+  </div>
+
+  <!-- Webring Widget -->
+  <div class="widget widget-webring">
+    <div class="widget-header widget-header-webring">🌐 Webrings</div>
+    <div class="widget-content">
+      <div class="webring-placeholder">
+        <p class="webring-text">Join the webring!</p>
+        <div class="webring-nav">
+          <a href="#" class="webring-link">← Previous</a>
+          <a href="#" class="webring-link">Random</a>
+          <a href="#" class="webring-link">Next →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 88x31 Badges Widget -->
+  <div class="widget widget-badges">
+    <div class="widget-header widget-header-badges">🏆 Badges</div>
+    <div class="widget-content">
+      <div class="badge-grid">
+        <div class="badge-88x31 badge-placeholder">88x31</div>
+        <div class="badge-88x31 badge-placeholder">88x31</div>
+        <div class="badge-88x31 badge-placeholder">88x31</div>
+        <div class="badge-88x31 badge-placeholder">88x31</div>
+        <div class="badge-88x31 badge-placeholder">88x31</div>
+        <div class="badge-88x31 badge-placeholder">88x31</div>
+      </div>
+    </div>
+  </div>
+
+</aside>

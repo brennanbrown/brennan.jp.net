@@ -1,0 +1,31 @@
+{{ define "main" }}
+
+<article class="single-page h-entry">
+  <header class="page-header">
+    <h1 class="page-title p-name">{{ .Title }}</h1>
+  </header>
+
+  <div class="page-content e-content">
+    {{ .Content }}
+  </div>
+
+  <footer class="page-footer-bar">
+    <div class="share-links">
+      <strong>Share:</strong>
+      <a href="https://mastodon.social/share?url={{ .Permalink }}&text={{ .Title }}" rel="noopener" target="_blank">[Mastodon]</a>
+      <a href="https://www.threads.net/intent/post?url={{ .Permalink }}&text={{ .Title }}" rel="noopener" target="_blank">[Threads]</a>
+      <a href="mailto:?subject={{ .Title }}&body={{ .Permalink }}">[Email]</a>
+    </div>
+    
+    <div class="page-navigation">
+      {{ if .PrevInSection }}
+      <a href="{{ .PrevInSection.Permalink }}" class="nav-btn">← {{ .PrevInSection.Title }}</a>
+      {{ end }}
+      {{ if .NextInSection }}
+      <a href="{{ .NextInSection.Permalink }}" class="nav-btn">{{ .NextInSection.Title }} →</a>
+      {{ end }}
+    </div>
+  </footer>
+</article>
+
+{{ end }}

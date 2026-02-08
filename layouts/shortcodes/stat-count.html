@@ -1,0 +1,10 @@
+{{ $type := .Get 0 }}
+{{ if eq $type "posts" }}
+  {{ len (where $.Site.RegularPages "Section" "posts") }}
+{{ else if eq $type "categories" }}
+  {{ len $.Site.Taxonomies.categories }}
+{{ else if eq $type "tags" }}
+  {{ len $.Site.Taxonomies.tags }}
+{{ else }}
+  0
+{{ end }}

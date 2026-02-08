@@ -1,0 +1,36 @@
+{{ define "main" }}
+
+<section class="term-page">
+  <div class="section-header">
+    <h2>■ {{ .Title }} <span class="term-count">({{ len .Pages }} posts)</span></h2>
+  </div>
+
+  <div class="archive-table">
+    <div class="archive-row archive-header-row">
+      <span class="archive-col-date">Date</span>
+      <span class="archive-col-title">Title</span>
+      <span class="archive-col-category">Category</span>
+      <span class="archive-col-tags">Tags</span>
+    </div>
+    {{ range $index, $page := .Pages }}
+    <div class="archive-row {{ if (modBool $index 2) }}archive-row-alt{{ end }}">
+      <span class="archive-col-date">{{ .Date.Format "2006-01-02" }}</span>
+      <span class="archive-col-title">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </span>
+      <span class="archive-col-category">
+        {{ with .Params.categories }}
+        {{ range . }}<a href="{{ "categories/" | relURL }}{{ . | urlize }}/" class="category-link">{{ . }}</a> {{ end }}
+        {{ end }}
+      </span>
+      <span class="archive-col-tags">
+        {{ with .Params.tags }}
+        {{ range . }}<a href="{{ "tags/" | relURL }}{{ . | urlize }}/" class="tag">{{ . }}</a> {{ end }}
+        {{ end }}
+      </span>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+{{ end }}

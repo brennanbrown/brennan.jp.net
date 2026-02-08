@@ -1,0 +1,55 @@
+{{ define "main" }}
+
+<section class="list-page">
+  <div class="section-header">
+    <h2>■ {{ .Title }}</h2>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+  </div>
+
+  <div class="archive-table">
+    <div class="archive-row archive-header-row">
+      <span class="archive-col-date">Date</span>
+      <span class="archive-col-title">Title</span>
+      <span class="archive-col-category">Category</span>
+      <span class="archive-col-tags">Tags</span>
+    </div>
+    {{ $paginator := .Paginate .Pages }}
+    {{ range $index, $page := $paginator.Pages }}
+    <div class="archive-row {{ if (modBool $index 2) }}archive-row-alt{{ end }}">
+      <span class="archive-col-date">{{ .Date.Format "2006-01-02" }}</span>
+      <span class="archive-col-title">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{ if lt (sub now.Unix .Date.Unix) 259200 }}
+        <span class="badge-new blink">NEW!</span>
+        {{ end }}
+      </span>
+      <span class="archive-col-category">
+        {{ with .Params.categories }}
+        {{ range . }}<a href="{{ "categories/" | relURL }}{{ . | urlize }}/" class="category-link">{{ . }}</a> {{ end }}
+        {{ end }}
+      </span>
+      <span class="archive-col-tags">
+        {{ with .Params.tags }}
+        {{ range . }}<a href="{{ "tags/" | relURL }}{{ . | urlize }}/" class="tag">{{ . }}</a> {{ end }}
+        {{ end }}
+      </span>
+    </div>
+    {{ end }}
+  </div>
+
+  {{ if gt $paginator.TotalPages 1 }}
+  <nav class="pagination" aria-label="Page navigation">
+    {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}" class="page-btn">&laquo; Prev</a>
+    {{ end }}
+    {{ range $paginator.Pagers }}
+    <a href="{{ .URL }}" class="page-btn {{ if eq . $paginator }}page-current{{ end }}">{{ .PageNumber }}</a>
+    {{ end }}
+    {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}" class="page-btn">Next &raquo;</a>
+    {{ end }}
+  </nav>
+  {{ end }}
+</section>
+
+{{ end }}

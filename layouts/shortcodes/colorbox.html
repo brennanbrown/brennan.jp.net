@@ -1,0 +1,4 @@
+{{/* Usage: {{< colorbox color="red" >}}Content here{{< /colorbox >}} */}}
+<div class="color-box color-box-{{ .Get "color" | default "blue" }}">
+  {{ .Inner | markdownify }}
+</div>

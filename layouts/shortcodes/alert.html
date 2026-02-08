@@ -1,0 +1,4 @@
+{{/* Usage: {{< alert type="warning" >}}Content here{{< /alert >}} */}}
+<div class="alert alert-{{ .Get "type" | default "info" }}">
+  {{ .Inner | markdownify }}
+</div>

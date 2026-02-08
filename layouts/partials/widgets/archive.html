@@ -1,0 +1,15 @@
+<div class="widget widget-archive">
+  <div class="widget-header widget-header-archive">📅 Archive</div>
+  <div class="widget-content widget-scrollable">
+    <ul class="archive-list">
+      {{ $pages := where .Site.RegularPages "Section" "posts" }}
+      {{ $grouped := $pages.GroupByDate "January 2006" }}
+      {{ range $grouped }}
+      <li class="archive-month">
+        <span class="archive-date">📅 {{ .Key }}</span>
+        <span class="archive-count">({{ len .Pages }})</span>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</div>

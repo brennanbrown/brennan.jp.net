@@ -1,0 +1,11 @@
+{{ $param := .Get 0 }}
+{{ $default := .Get 1 }}
+{{ with $.Site.Params }}
+  {{ with index . $param }}
+    {{ . }}
+  {{ else }}
+    {{ $default }}
+  {{ end }}
+{{ else }}
+  {{ $default }}
+{{ end }}

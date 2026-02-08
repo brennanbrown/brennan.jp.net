@@ -1,0 +1,66 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+
+    {{ if .Site.Params.showSiteMap }}
+    <div class="footer-col footer-sitemap">
+      <h3 class="footer-heading">Site Map</h3>
+      <ul>
+        {{ range .Site.Menus.main }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+        <!-- <li><a href="{{ "categories/" | relURL }}">Categories</a></li> -->
+        <li><a href="{{ "tags/" | relURL }}">Tags</a></li>
+      </ul>
+    </div>
+    {{ end }}
+
+    <div class="footer-col">
+      <h4 class="footer-heading">About</h4>
+      <ul>
+        <!-- <li><a href="/about/">About Me</a></li> -->
+        <li><a href="{{ "contact/" | relURL }}">Contact</a></li>
+        <li><a href="{{ "colophon/" | relURL }}">Colophon</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-links">
+      <h3 class="footer-heading">Links</h3>
+      <ul>
+        <li><a href="{{ "feed.xml" | absURL }}">📡 RSS Feed</a></li>
+        {{- if .Site.Params.github }}
+        <li><a href="https://github.com/{{ .Site.Params.github }}" rel="me">GitHub</a></li>
+        {{- end }}
+      </ul>
+    </div>
+
+    <div class="h-card p-author" style="display: none;">
+      <img class="u-photo" src="{{ "images/avatar.jpg" | relURL }}" alt="{{ .Site.Params.author }}" />
+      <span class="p-name">{{ .Site.Params.author }}</span>
+      <a class="u-url" href="{{ .Site.BaseURL }}">{{ .Site.BaseURL }}</a>
+      <span class="p-note">{{ .Site.Params.description }}</span>
+    </div>
+
+    <div class="footer-col footer-info">
+      <h3 class="footer-heading">Info</h3>
+      {{ if .Site.Params.showHitCounter }}
+      <div class="hit-counter">
+        <span class="counter-label">Visitors:</span>
+        <span class="counter-digits">
+          <span class="digit">1</span><span class="digit">4</span><span class="digit">2</span><span class="digit">8</span><span class="digit">5</span><span class="digit">7</span>
+        </span>
+      </div>
+      {{ end }}
+      <p class="page-load-time">Page generated: {{ now.Format "2006-01-02 15:04:05" }}</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    {{ if .Site.Params.showCopyright }}
+    <p>&copy; {{ now.Format "2006" }} {{ .Site.Params.author }} | <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> | <a href="{{ .Site.Params.themeRepo | default "#" }}">Theme</a> by <a href="{{ .Site.Params.developerUrl | default "#" }}">{{ .Site.Params.developer | default "Theme Developer" }}</a> | <a href="{{ .Site.Params.licenseUrl | default "#" }}">MIT License</a></p>
+    {{ end }}
+    {{ with .Site.Params.customFooterText }}
+    <p class="browser-notice">{{ . }}</p>
+    {{ end }}
+  </div>
+</footer>
