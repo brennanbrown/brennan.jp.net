@@ -1,0 +1,87 @@
+baseURL = "https://example.com/"
+languageCode = "en-us"
+title = "My Japanese Web Site"
+[params]
+  description = "A demo site showcasing the brennan.jp.net Hugo theme"
+  author = "Your Name"
+  
+  # Contact information
+  email = "your-email@example.com"
+  mastodon = "@username@mastodon.social"
+  github = "username"
+  
+  # Theme colors
+  primaryColor = "#FF0000"
+  secondaryColor = "#0066FF"
+  backgroundColor = "#FFFFFF"
+  borderColor = "#CCCCCC"
+  textSecondaryColor = "#666666"
+  textMutedColor = "#999999"
+  backgroundSecondaryColor = "#F0F0F0"
+
+  # Layout options
+  showSidebar = true
+  sidebarPosition = "right"
+  columnCount = 3
+
+  # Homepage settings
+  postsPerPage = 15
+  excerptLength = 300
+  showThumbnails = true
+
+  # Visual effects
+  enableAnimations = true
+  showHitCounter = true
+  enableMarquee = true
+
+  # Widgets
+  showRecentPosts = true
+  recentPostsCount = 10
+  showTagCloud = true
+  showArchiveCalendar = true
+  showRandomQuote = true
+
+  # Footer
+  showSiteMap = true
+  showCopyright = true
+  customFooterText = "Best viewed in any browser! 頑張って"
+
+  # Quotes for random rotation
+  [[params.quotes]]
+    text = "The web is what you make of it."
+    author = "Tim Berners-Lee"
+  [[params.quotes]]
+    text = "In the beginner's mind there are many possibilities."
+    author = "Shunryu Suzuki"
+  [[params.quotes]]
+    text = "Write what should not be forgotten."
+    author = "Isabel Allende"
+
+[menus]
+  [[menus.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menus.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 2
+  [[menus.main]]
+    name = "About"
+    url = "/about/"
+    weight = 3
+  [[menus.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 4
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "witchhazel"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
