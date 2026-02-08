@@ -30,6 +30,7 @@ summaryLength = 70
 [params]
   description = "Your site description here!"
   author = "Your Name"
+  featured_image = "/images/screenshot.jpg"
   
   # SEO protection for example content (set to false for your own work)
   noIndex = true
