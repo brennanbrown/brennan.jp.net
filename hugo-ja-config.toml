@@ -1,0 +1,19 @@
+# Example multilingual configuration
+baseURL = "https://brennan.jp.net/"
+defaultContentLanguage = "en"
+title = "brennan.jp.net"
+
+[languages]
+  [languages.en]
+    languageCode = "en-us"
+    languageName = "English"
+    weight = 1
+    title = "brennan.jp.net"
+    
+  [languages.ja]
+    languageCode = "ja-jp"
+    languageName = "日本語"
+    weight = 2
+    title = "ブレナン.jp.net"
+
+# Rest of your existing config...

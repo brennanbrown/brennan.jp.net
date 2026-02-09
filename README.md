@@ -7,6 +7,7 @@
 A Hugo blog theme that authentically recreates the compact, text-heavy, colorful aesthetic of traditional Japanese web design (circa 1990s–2010s), while maintaining modern accessibility and performance standards.
 
 ![Theme Screenshot](screenshot.jpg)
+![Japanese Version Screenshot](screenshot-jp.jpg)
 
 ## [Demo](https://brennan.jp.net)
 
